@@ -7,7 +7,7 @@
 int main() {
     struct Node *head = NULL;
 
-    load_students_from_file(&head, "students.bin");
+    load_students_from_file(&head, "data.bin");
 
     struct Student *student1 = (struct Student *)studentInit("Pushkin", "Alex", "M", 20,  1, 4, 3, 5);
     struct Node *new_node1 = (struct Node *)malloc(sizeof(struct Node));
