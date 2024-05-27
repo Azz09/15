@@ -5,7 +5,7 @@
 void* infoOutput(void*);
 void* saveToBinary(void*);
 
-void* studentInit(void *surname, void *name, void *sex, int age, int group, float mathGrade, float physicsGrade, float chemistryGrade) {
+void* studentInit(void *surname, void *name, void *sex, int age, int group, int mathGrade, int physicsGrade, int chemistryGrade) {
     struct Student* result = (struct Student*)malloc(sizeof(struct Student));
     if (result == NULL) {
         printf("Memory allocation error for student.\n");
@@ -49,9 +49,9 @@ void* infoOutput(void* student) {
     printf("gender: %s\n", s->sex);
     printf("Age: %d\n", s->age);
     printf("Group: %d\n", s->group);
-    printf("Math Grade: %.1f\n", s->mathGrade);
-    printf("Physics Grade: %.1f\n", s->physicsGrade);
-    printf("Chemistry Grade: %.1f\n", s->chemistryGrade);
+    printf("Math Grade: %d\n", s->mathGrade);
+    printf("Physics Grade: %d\n", s->physicsGrade);
+    printf("Chemistry Grade: %d\n", s->chemistryGrade);
     printf("\n");
     return NULL;
 }
@@ -82,9 +82,9 @@ void* saveToBinary(void* student) {
     fwrite(_student->sex, sizeof(char), sexSize, fp);
     fwrite(&_student->age, sizeof(int), 1, fp);
     fwrite(&_student->group, sizeof(int), 1, fp);
-    fwrite(&_student->mathGrade, sizeof(float), 1, fp);
-    fwrite(&_student->physicsGrade, sizeof(float), 1, fp);
-    fwrite(&_student->chemistryGrade, sizeof(float), 1, fp);
+    fwrite(&_student->mathGrade, sizeof(int), 1, fp);
+    fwrite(&_student->physicsGrade, sizeof(int), 1, fp);
+    fwrite(&_student->chemistryGrade, sizeof(int), 1, fp);
 
     fclose(fp);
 
